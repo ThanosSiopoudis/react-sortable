@@ -75,8 +75,14 @@ const SortableMixin = (options = defaultOptions) => (Component) => class extends
                 } else if (name === 'onAdd' || name === 'onUpdate') {
                     evt.from.insertBefore(evt.item, _nextSibling);
 
-                    const oldIndex = evt.oldIndex;
-                    const newIndex = evt.newIndex;
+                    // Subtract x amount of elements
+                    // because of our page break
+                    // How many?
+                    var amtToSubOld = evt.oldIndex > 60 ? Math.floor(evt.oldIndex / 60) : 0;
+                    var amtToSubNew = evt.newIndex > 60 ? Math.floor(evt.oldIndex / 60) : 0;
+
+                    const oldIndex = evt.oldIndex - amtToSubOld;
+                    const newIndex = evt.newIndex - amtToSubNew;
                     let newState = {};
                     let remoteState = {};
                     let items = getModelItems(this);
