@@ -1,6 +1,6 @@
 {
   "name": "react-sortablejs",
-  "version": "0.7.0-cfix",
+  "version": "0.7.1-cfix",
   "description": "A higher order React component for Sortable (https://github.com/RubaXa/Sortable).",
   "main": "lib/index.js",
   "scripts": {
